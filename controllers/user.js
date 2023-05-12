@@ -168,7 +168,7 @@ const createConversation = async (req, res, next) => {
   }
   if (existingConver.length === 3) {
     const errors = new HttpError(
-      "Sorry you can't create more the three conversation",
+      "Sorry you can't create more than three conversation",
       500
     );
     return next(errors);
