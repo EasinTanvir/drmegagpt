@@ -193,7 +193,7 @@ const createConversation = async (req, res, next) => {
     res.status(200).json({ con: createCon._id });
   } else if (existingConver.length !== 0 && !req.body.token) {
     const errors = new HttpError(
-      "You must need to Login/Signup to create a new conversation",
+      "You must need to Login/Signup to create multiple conversation",
       500
     );
     return next(errors);
