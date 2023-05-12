@@ -166,9 +166,9 @@ const createConversation = async (req, res, next) => {
     const errors = new HttpError("find conversation failed", 500);
     return next(errors);
   }
-  if (existingConver.length === 3) {
+  if (existingConver.length === 8) {
     const errors = new HttpError(
-      "Sorry you can't create more than three conversation",
+      "Sorry you can't create more than eight conversation",
       500
     );
     return next(errors);
@@ -193,7 +193,7 @@ const createConversation = async (req, res, next) => {
     res.status(200).json({ con: createCon._id });
   } else if (existingConver.length !== 0 && !req.body.token) {
     const errors = new HttpError(
-      "You must need to Login/Signup to create more conversation",
+      "You must need to Login/Signup to create a new conversation",
       500
     );
     return next(errors);
