@@ -9,5 +9,6 @@ router.route("/message").post(gptRoutes.createMessage);
 router.route("/extra").post(gptRoutes.createExtra);
 router.route("/conversation").post(gptRoutes.createConversation);
 router.route("/getconver").post(gptRoutes.getConversation);
+router.route("/deletemessage").post(gptRoutes.deleteMessages);
 
 module.exports = router;

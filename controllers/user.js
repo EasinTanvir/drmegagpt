@@ -220,6 +220,19 @@ const getConversation = async (req, res, next) => {
   res.status(200).json({ conver: Conver });
 };
 
+const deleteMessages = async (req, res, next) => {
+  let messages;
+
+  try {
+    messages = await MESSAGE.deleteMany({ conversationId: req.body.converId });
+  } catch (err) {
+    const errors = new HttpError("delete message failed", 500);
+    return next(errors);
+  }
+
+  res.status(200).json({ message: "Conversation clear successfull" });
+};
+
 const createExtra = async (req, res, next) => {
   let message;
 
@@ -267,4 +280,5 @@ module.exports = {
   createExtra,
   createConversation,
   getConversation,
+  deleteMessages,
 };
